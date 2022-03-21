@@ -1,7 +1,14 @@
 import { Flex, Icon, Input } from '@chakra-ui/react'
+import { useRef, useState } from 'react'
 import { RiSearchLine } from 'react-icons/ri'
 
 export function SarchBox() {
+  // const [search, setSearch] = useState('')
+
+  const searchInputRef = useRef<HTMLInputElement>(null)
+
+  // debounce
+
   return (
     <Flex
       as="label"
@@ -23,6 +30,9 @@ export function SarchBox() {
         mr="4"
         placeholder="Buscar na plataforma"
         _placeholder={{ color: 'gray.400' }}
+        // value={search}
+        // onChange={event => setSearch(event.target.value)}
+        ref={searchInputRef}
       />
       <Icon as={RiSearchLine} fontSize="20" />
     </Flex>
